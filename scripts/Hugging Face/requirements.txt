@@ -1,0 +1,24 @@
+# --- Core API & Server ---
+fastapi
+uvicorn
+pydantic
+python-multipart
+python-dotenv
+requests
+numpy
+
+# --- AI & LLM Providers ---
+google-genai
+huggingface_hub
+groq
+
+# --- Vector DB & Embeddings ---
+qdrant-client>=1.18.0,<1.20.0
+torch
+transformers
+sentence-transformers
+langchain
+langchain-community
+langchain-huggingface
+langchain-text-splitters
+pymupdf
