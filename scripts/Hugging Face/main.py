@@ -755,7 +755,6 @@ def log_token_openai(label, chat, durasi_api):
         print(f"⚠️ Gagal mencatat pemakaian token {label}: {log_error}", flush=True)
 
 def generate_via_groq_fallback(category, subject, indicator, data_table, rag_query,
-    """Menggunakan API Groq sebagai AI cadangan (fallback) seandainya API Hugging Face utama sedang down atau terlalu lambat."""
                                 groq_model="openai/gpt-oss-120b", context=None, extra_instruction=""):
     """Jalankan narasi via Groq Cloud dengan prompt ringkas (dipakai untuk GPT-OSS 120B)."""
     # Reuse context yang sudah diambil kalau ada (hemat 1 panggilan Qdrant); kalau tidak,
@@ -821,7 +820,6 @@ def call_hf(model_id, system_prompt, user_prompt, extra_instruction=""):
     return chat.choices[0].message.content
 
 def call_narrative_provider(target_model, system_prompt, user_prompt, context, rag_query,
-    """Fungsi inti yang mengontrol AI mana (Hugging Face, OpenAI, atau Groq) yang harus dipanggil berdasarkan nama model yang dipilih user."""
                              category, subject, indicator, data_table, extra_instruction=""):
     """Dispatch ke penyedia sesuai model yang DIPILIH USER dan kembalikan (narrative, label_model).
     Gemini memakai prompt lengkap (system_prompt/user_prompt); Llama dan GPT-OSS memakai prompt ringkas.
